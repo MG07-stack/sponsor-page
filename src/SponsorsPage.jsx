@@ -6,11 +6,11 @@ const sponsorsData = {
     { name: "Platinum Sponsor", logo: "/logos/logo1.jpg" }
   ],
   gold: [
-    { name: "Gold Sponsor", logo: "/logos/logo2.png" },
-    { name: "Gold Sponsor", logo: "/logos/logo3.png" }
+    { name: "Gold Sponsor", logo: "/logos/logo2.jpg" },
+    { name: "Gold Sponsor", logo: "/logos/logo3.jpg" }
   ],
   silver: [
-  { name: "Brand One", logo: "/logos/silver1.png" },
+  { name: "Brand One", logo: "/logos/silver1.jpg" },
   { name: "Brand Two", logo: "/logos/silver2.png" },
   { name: "Brand Three", logo: "/logos/silver3.png" },
   { name: "Brand Four", logo: "/logos/silver4.png" },
@@ -56,21 +56,19 @@ const sponsorsData = {
 
   {/* LOGO (bottom layer) */}
   <img
-    src={sponsor.logo}
-    alt={sponsor.name}
-    style={{
-      position: "absolute",
-      top: "48%",
-      left: "50%",
-      transform: "translate(-50%, -50%)",
-      width: isPlatinum
-        ? "62%"
-        : isGold
-        ? "58%"
-        : "55%",
-      zIndex: 1
-    }}
-  />
+  src={sponsor.logo}
+  alt={sponsor.name}
+  style={{
+    position: "absolute",
+    top: "46%",   // slightly higher because of bottom ornament
+    left: "50%",
+    transform: "translate(-50%, -50%)",
+    width: isPlatinum ? "80%" : isGold ? "78%" : "75%",
+    height: isPlatinum ? "80%" : isGold ? "78%" : "75%",
+    objectFit: "contain",
+    zIndex: 1
+  }}
+/>
 
   {/* FRAME (top layer) */}
   <img
@@ -93,7 +91,7 @@ const sponsorsData = {
       style={{
         position: "relative",
         display: "inline-block",
-        margin: "-30px auto 0",
+        margin: "-70px auto 0",
         minWidth: isPlatinum
   ? "clamp(200px, 24vw, 240px)"
   : isGold
@@ -259,7 +257,7 @@ const divider = {
 };
 
 const sectionTitle = {
-  fontSize: "clamp(18px, 3.5vw, 32px)",
+  fontSize: "clamp(18px, 3.5vw, 34px)",
   color: "#d4af37",
   letterSpacing: "4px"
 };
