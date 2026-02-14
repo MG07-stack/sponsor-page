@@ -151,7 +151,7 @@ const Section = ({ title, sponsors, columns }) => (
     initial={{ opacity: 0, y: 40 }}
     whileInView={{ opacity: 1, y: 0 }}
     transition={{ duration: 0.8 }}
-    style={{ marginBottom: "30px" }}
+    style={{ marginBottom: "clamp(5px, 2vw, 10px)" }}
   >
     <div style={sectionHeader}>
       <div style={divider}></div>
@@ -186,27 +186,34 @@ const SponsorsPage = () => {
     <div style={pageStyle}>
       <div style={goldParticles}></div>
 
-      <div style={frameStyle}>
-        <h1 style={mainTitle}>SPONSORS</h1>
+      <div style={frameWrapper}>
 
-        <Section
-          title="PLATINUM"
-          sponsors={sponsorsData.platinum}
-          columns={1}
-        />
+  {/* TOP CAP */}
+  <img
+    src="/big-frame-top.svg"
+    style={{ width: "100%", display: "block" }}
+    alt=""
+  />
 
-        <Section
-          title="GOLD"
-          sponsors={sponsorsData.gold}
-          columns={2}
-        />
+  {/* MIDDLE REPEATING SECTION */}
+  <div style={frameMiddle}>
 
-        <Section
-          title="SILVER"
-          sponsors={sponsorsData.silver}
-          columns={3}
-        />
-      </div>
+    <h1 style={mainTitle}>SPONSORS</h1>
+
+    <Section title="PLATINUM" sponsors={sponsorsData.platinum} columns={1} />
+    <Section title="GOLD" sponsors={sponsorsData.gold} columns={2} />
+    <Section title="SILVER" sponsors={sponsorsData.silver} columns={3} />
+
+  </div>
+
+  {/* BOTTOM CAP */}
+  <img
+    src="/big-frame-bottom.svg"
+    style={{ width: "100%", display: "block" }}
+    alt=""
+  />
+
+</div>
     </div>
   );
 };
@@ -230,22 +237,12 @@ const pageStyle = {
   overflow: "hidden"
 };
 
-const frameStyle = {
-  maxWidth: "1150px",
-  margin: "80px auto",
-  padding: "clamp(10px, 3vw, 20px) clamp(30px, 6vw, 100px) clamp(10px, 2vw, 12px)",
-  backgroundImage: "url('/big-frame.svg')",
-  backgroundSize: "contain",   // ← IMPORTANT change
-  backgroundRepeat: "no-repeat",
-  backgroundPosition: "top center",
-  position: "relative"
-};
 
 const mainTitle = {
   textAlign: "center",
   fontSize: "clamp(28px, 6vw, 60px)",
   color: "#f5e6c8",
-  marginBottom: "20px",
+  margin: "0 0 20px 0",   // ← removes top margin
   letterSpacing: "5px"
 };
 
@@ -280,3 +277,22 @@ const goldParticles = {
   opacity: 0.05,
   pointerEvents: "none"
 };
+
+const frameWrapper = {
+  maxWidth: "1150px",
+  margin: "clamp(40px, 8vw, 80px) auto",
+  position: "relative"
+};
+
+const frameMiddle = {
+  padding: `
+    clamp(5px, 6vw, 20px)
+    clamp(20px, 6vw, 100px)
+    clamp(20px, 8vw, 40px)
+  `,
+  backgroundImage: "url('/big-frame-middle.svg')",
+  backgroundRepeat: "repeat-y",   // ← vertical tiling
+  backgroundSize: "100% auto",    // ← width fits, height natural
+  backgroundPosition: "top center"
+};
+
