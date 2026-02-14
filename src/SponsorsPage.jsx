@@ -91,7 +91,11 @@ const sponsorsData = {
       style={{
         position: "relative",
         display: "inline-block",
-        margin: "-70px auto 0",
+        margin: isPlatinum
+  ? "clamp(-80px, -6vw, -60px) auto 0"
+  : isGold
+  ? "clamp(-55px, -5vw, -40px) auto 0"
+  : "clamp(-45px, -4vw, -30px) auto 0",
         minWidth: isPlatinum
   ? "clamp(200px, 24vw, 240px)"
   : isGold
@@ -116,7 +120,11 @@ maxWidth: isPlatinum
           position: "absolute",
           top: "50%",
           left: "50%",
-          transform: "translate(-50%, -60%)",
+          transform: isPlatinum
+  ? "translate(-50%, -58%)"
+  : isGold
+  ? "translate(-50%, -56%)"
+  : "translate(-50%, -50%)",
           fontSize: isPlatinum
   ? "clamp(13px, 2.2vw, 18px)"   // larger platinum
   : isGold
@@ -246,7 +254,7 @@ const sectionHeader = {
   alignItems: "center",
   justifyContent: "center",
   gap: "25px",
-  marginBottom: "28px"
+  marginBottom: "28px" 
 };
 
 const divider = {
