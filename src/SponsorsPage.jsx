@@ -185,6 +185,8 @@ const SponsorsPage = () => {
   return (
     <div style={pageStyle}>
       <div style={goldParticles}></div>
+      <div style={fixedBackground}></div>
+
 
       <div style={frameWrapper}>
 
@@ -225,13 +227,6 @@ export default SponsorsPage;
 const pageStyle = {
   minHeight: "100vh",
   padding: "40px 20px",
-  backgroundImage: `
-    linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)),
-    url('/backgrounds/bg.png')
-  `,
-  backgroundSize: "cover",
-  backgroundPosition: "center",
-  backgroundRepeat: "no-repeat",
   fontFamily: "'Cinzel', serif",
   position: "relative",
   overflow: "hidden"
@@ -296,3 +291,18 @@ const frameMiddle = {
   backgroundPosition: "top center"
 };
 
+const fixedBackground = {
+  position: "fixed",
+  top: 0,
+  left: 0,
+  width: "100%",
+  height: "100%",
+  backgroundImage: `
+    linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)),
+    url('/backgrounds/bg.png')
+  `,
+  backgroundSize: "cover",
+  backgroundPosition: "center",
+  backgroundRepeat: "no-repeat",
+  zIndex: -2
+};
