@@ -192,7 +192,7 @@ const SponsorsPage = () => {
 
   {/* TOP CAP */}
   <img
-    src="/big-frame-top.svg"
+    src="/big-frame-top.webp"
     style={{ width: "100%", display: "block" }}
     alt=""
   />
@@ -210,7 +210,7 @@ const SponsorsPage = () => {
 
   {/* BOTTOM CAP */}
   <img
-    src="/big-frame-bottom.svg"
+    src="/big-frame-bottom.webp"
     style={{ width: "100%", display: "block" }}
     alt=""
   />
@@ -236,9 +236,15 @@ const pageStyle = {
 const mainTitle = {
   textAlign: "center",
   fontSize: "clamp(28px, 6vw, 60px)",
-  color: "#f5e6c8",
-  margin: "0 0 20px 0",   // ← removes top margin
-  letterSpacing: "5px"
+  color: "#e6bf74",
+  margin: "0 0 20px 0",
+  letterSpacing: "5px",
+
+  filter: `
+    drop-shadow(0 0 6px rgba(255, 215, 120, 0.8))
+    drop-shadow(0 0 18px rgba(255, 215, 120, 0.5))
+    drop-shadow(0 0 35px rgba(255, 215, 120, 0.3))
+  `
 };
 
 const sectionHeader = {
@@ -258,7 +264,7 @@ const divider = {
 
 const sectionTitle = {
   fontSize: "clamp(18px, 3.5vw, 34px)",
-  color: "#d4af37",
+  color: "#ddb56a",
   letterSpacing: "4px"
 };
 
@@ -285,7 +291,7 @@ const frameMiddle = {
     clamp(20px, 6vw, 100px)
     clamp(20px, 8vw, 40px)
   `,
-  backgroundImage: "url('/big-frame-middle.svg')",
+  backgroundImage: "url('/big-frame-middle.webp')",
   backgroundRepeat: "repeat-y",   // ← vertical tiling
   backgroundSize: "100% auto",    // ← width fits, height natural
   backgroundPosition: "top center"
